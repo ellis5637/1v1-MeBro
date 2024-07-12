@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dws6gqj73xv0g"]
+
+[ext_resource type="Script" path="res://Player/code/Player.gd" id="1_hmuft"]
+[ext_resource type="Script" path="res://Player/code/InputSync.gd" id="2_bo2nk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wmobh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6kxww"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hv07p"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4el44"]
+properties/0/path = NodePath("InputSync:direction")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yirh8"]
+properties/0/path = NodePath(".:player")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_hmuft")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_wmobh")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_6kxww")
+
+[node name="PlayerArea" type="Area3D" parent="."]
+
+[node name="PlayerAreaZone" type="CollisionShape3D" parent="PlayerArea"]
+shape = SubResource("CapsuleShape3D_hv07p")
+
+[node name="Xaxis" type="Node3D" parent="."]
+
+[node name="Yaxis" type="Node3D" parent="Xaxis"]
+
+[node name="PlayerCamera" type="Camera3D" parent="Xaxis/Yaxis"]
+current = true
+
+[node name="InputSync" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath(".")
+replication_config = SubResource("SceneReplicationConfig_4el44")
+script = ExtResource("2_bo2nk")
+
+[node name="PlayerSync" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_yirh8")

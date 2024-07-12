@@ -1,0 +1,132 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdined8wfwn81"]
+
+[ext_resource type="Script" path="res://Menus/scene/StartMenu.gd" id="1_1odia"]
+[ext_resource type="Script" path="res://Control.gd" id="1_gf6hn"]
+[ext_resource type="FontFile" uid="uid://b0undhwkx7fmj" path="res://fonts/FOOD DELIGHT.TTF" id="2_b13jj"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_1odia")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gf6hn")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.752941, 0, 0.0705882, 1)
+theme_override_colors/font_shadow_color = Color(1, 0.411765, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 80
+text = "1v1 me bro"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OpenGameMenu" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.643137, 0.0156863, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.498039, 0.482353, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="StartHosting" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.643137, 0.0156863, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.498039, 0.482353, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+text = "host"
+
+[node name="StartJoining" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.643137, 0.0156863, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.498039, 0.482353, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+text = "join"
+
+[node name="StartGame" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.643137, 0.0156863, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.498039, 0.482353, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+text = "start"
+
+[node name="JoinHost" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.643137, 0.0156863, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.498039, 0.482353, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+text = "join"
+
+[node name="Settings" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.643137, 0.0156863, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0.498039, 0.482353, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+text = "settings"
+
+[node name="ComputerIP" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 0, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="EnterIP" type="LineEdit" parent="UI/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b13jj")
+theme_override_font_sizes/font_size = 40
+placeholder_text = "enter hosts ip"
+alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="UI"]
+
+[node name="WorldNode" type="Node3D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://levels/scene/test_level.tscn")
+spawn_path = NodePath("../WorldNode")
+spawn_limit = 1
+
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/OpenGameMenu" to="." method="_on_open_game_menu_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/StartHosting" to="." method="_on_start_hosting_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/StartJoining" to="." method="_on_start_joining_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/JoinHost" to="." method="_on_join_host_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
